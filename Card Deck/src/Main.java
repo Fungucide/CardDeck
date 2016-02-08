@@ -10,14 +10,6 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		ArrayList<Card> deck = new ArrayList<Card>();
-		for (int val = 0; val < 13; val++)
-		{
-			for (int sui = 0; sui < 4; sui++)
-			{
-				deck.add(new Card(val, sui));
-			}
-		}
 
 		MyPlayerControllerAI pc = new MyPlayerControllerAI();
 
@@ -31,7 +23,6 @@ public class Main
 		ArrayList<Card> aihand = Input();
 		ArrayList<Cycle> record = new ArrayList<Cycle>();
 		// add cards here
-
 		while (true)
 		{
 			Cycle c = new Cycle(aihand, otherPlayersInput(ID));
@@ -48,9 +39,11 @@ public class Main
 		System.out.println("Number of cards: ");
 		int numberOfCards = in.nextInt();
 		ArrayList<Card> input = new ArrayList<Card>();
+		String split = in.nextLine();
+		String[] splited = split.split(" ");
 		for (int i = 0; i < numberOfCards; i++)
 		{
-			input.add(new Card(in.nextInt(), in.nextInt()));
+			input.add(new Card(splited[0], splited[1]));
 		}
 		Collections.sort(input);
 		return input;
@@ -64,9 +57,11 @@ public class Main
 			System.out.println("Number of cards: ");
 			int numberOfCards = in.nextInt();
 			ArrayList<Card> input = new ArrayList<Card>();
+			String split = in.nextLine();
+			String[] splited = split.split(" ");
 			for (int i = 0; i < numberOfCards; i++)
 			{
-				input.add(new Card(in.nextInt(), in.nextInt()));
+				input.add(new Card(splited[0], splited[1]));
 			}
 			list.put(ID[j], input);
 		}

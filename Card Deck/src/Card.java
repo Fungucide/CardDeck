@@ -1,11 +1,29 @@
 public class Card implements Comparable<Card>
 {
+	public int			temp;
 	public final int	suit;
 	public final int	value;
 
-	public Card(int value, int suit) {
-		this.suit = suit;
-		this.value = value;
+	public Card(String value, String suit) {
+		this.suit = Integer.parseInt(suit);
+		try
+		{
+			temp = Integer.parseInt(value);
+		} catch (NumberFormatException e)
+		{
+			if (value.equals("j"))
+			{
+				temp = 11;
+			} else if (value.equals("q"))
+			{
+				temp = 12;
+			} else if (value.equals("k"))
+			{
+				temp = 12;
+			}
+
+		}
+		this.value = temp;
 	}
 
 	@Override
